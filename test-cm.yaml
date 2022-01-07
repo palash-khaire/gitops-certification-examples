@@ -1,0 +1,27 @@
+apiVersion: v1
+data:
+  policy.csv: |
+    g, bbyc-cluster-admins, role:admin
+    p, role:hr-build, applications, get, hr-build/*, allow
+    p, role:hr-build, applications, sync, hr-build/*, allow
+    g, BCA_R_HR_EE_DEV, role:hr-build
+    p, role:hr-workday-dev, applications, get, hr-workday-dev/*, allow
+    p, role:hr-workday-dev, applications, sync, hr-workday-dev/*, allow
+    g, BCA_R_HR_EE_DEV, role:hr-workday-dev
+    p, role:hr-staffprice-dev, applications, get, hr-staffprice-dev/*, allow
+    p, role:hr-staffprice-dev, applications, sync, hr-staffprice-dev/*, allow1234
+    g, BCA_R_HR_EE_DEV, role:hr-staffprice-dev
+    p, role:orch-lil-dog-dev, applications, get, orch-lil-dog-dev/*, allow
+    p, role:orch-lil-dog-dev, applications, sync, orch-lil-dog-dev/*, allow
+    g, lil-dog-group, role:orch-lil-dog-dev
+
+  policy.default: role:readonly
+  scopes: '[groups]'
+kind: ConfigMap
+metadata:
+  labels:
+    app.kubernetes.io/managed-by: argocd-apps
+    app.kubernetes.io/name: argocd-rbac-cm
+    app.kubernetes.io/part-of: argocd
+  name: test-cm
+  namespace: spring-petclinic
