@@ -14,7 +14,6 @@ data:
     p, role:orch-lil-dog-dev, applications, get, orch-lil-dog-dev/*, allow
     p, role:orch-lil-dog-dev, applications, sync, orch-lil-dog-dev/*, allow
     g, lil-dog-group, role:orch-lil-dog-dev
-
   policy.default: role:readonly
   scopes: '[groups]'
 kind: ConfigMap
